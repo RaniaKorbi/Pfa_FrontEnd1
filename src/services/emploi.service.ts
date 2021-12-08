@@ -20,11 +20,12 @@ export class EmploiService {
     return this.http.post<Emploi>(`${this.apiServerUrl}/emploi/add`, emploi);
   }
 
-  public updateEmploi(emploi: Emploi):Observable<Emploi>{      
-    return this.http.put<Emploi>(this.apiServerUrl+"/emploi/update", emploi);
-}
+  public updateEmploi(emploi: Emploi): Observable<Emploi> {
+    return this.http.put<Emploi>(`${this.apiServerUrl}/emploi/update/`, emploi);
+  }
 
   public deleteEmploi(idEmploi: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiServerUrl}/emploi/${idEmploi}`)
-}
+    return this.http.delete<void>(`${this.apiServerUrl}/emploi/${idEmploi}`);
+  }
+
 }

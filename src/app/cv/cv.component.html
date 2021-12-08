@@ -1,0 +1,43 @@
+<div *ngIf="authService.isCondidat()">
+  <div *ngIf="currentFile" class="progress">
+    <div
+      class="progress-bar progress-bar-info progress-bar-striped"
+      role="progressbar"
+      attr.aria-valuenow="{{ progress }}"
+      aria-valuemin="0"
+      aria-valuemax="100"
+      [ngStyle]="{ width: progress + '%' }"
+    >
+      {{ progress }}%
+    </div>
+  </div>
+
+  <label class="btn btn-default">
+    <input type="file" (change)="selectFile($event)" />
+  </label>
+  <label for="email">email</label>
+  <input type="text" name="email" [(ngModel)]="email" />
+
+  <button
+    class="btn btn-success"
+    [disabled]="!selectedFiles"
+    (click)="upload()"
+  >
+    Upload
+  </button>
+</div>
+<div class="alert alert-light" role="alert">{{ message }}</div>
+
+<div class="card">
+  <div class="card-header">La liste du resultat</div>
+  <ul
+    class="list-group list-group-flush"
+    *ngFor="let file of fileInfos | async"
+  >
+    <div *ngIf="file.email == authService.loggedUser">
+      <li class="list-group-item">
+        <a href="{{ file.url }}">{{ file.name }}</a>
+      </li>
+    </div>
+  </ul>
+</div>

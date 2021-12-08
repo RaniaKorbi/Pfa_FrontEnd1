@@ -8,7 +8,7 @@ import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { EmploiComponent } from './emploi/emploi.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule ,NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { CommonModule } from '@angular/common';
 import { ToastrModule } from 'ngx-toastr';
 import { UserComponent } from './user/user.component';
@@ -16,6 +16,12 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { HomeComponent } from './home/home.component';
+import { ListeCandidatureComponent } from './liste-candidature/liste-candidature.component';
+import { UsersService } from 'src/services/user.service';
+import { CvComponent } from './cv/cv.component';
+import { CvService } from 'src/services/cv.service';
+
+
 
 
 @NgModule({
@@ -28,12 +34,15 @@ import { HomeComponent } from './home/home.component';
     LoginComponent,
     NavBarComponent,
     HomeComponent,
-    
+    ListeCandidatureComponent,
+    CvComponent,
+  
+
   ],
   imports: [
-    BrowserModule,AppRoutingModule,HttpClientModule,RouterModule,FormsModule, RouterModule,CommonModule, BrowserAnimationsModule,ToastrModule.forRoot(),ReactiveFormsModule, NgbModule,
+    NgbModalModule ,BrowserModule,AppRoutingModule,HttpClientModule,RouterModule,FormsModule, RouterModule,CommonModule, BrowserAnimationsModule,ToastrModule.forRoot(),ReactiveFormsModule, NgbModule,
   ],
-  providers: [EmploiService],
+  providers: [EmploiService, UsersService, CvService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

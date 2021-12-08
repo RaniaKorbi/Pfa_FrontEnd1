@@ -61,20 +61,20 @@ export class AuthService {
   
     
   isAdmin():Boolean{
-    console.log("role "+this.role);
+    // console.log("role "+this.role);
     if (!this.role) //this.roles== undefiened
         return false;
     return (this.role.indexOf('ADMIN') >-1) ;
     }
        
   isRecruteur():Boolean{
-    console.log("role "+this.role);
+    // console.log("role "+this.role);
     if (!this.role) //this.roles== undefiened
         return false;
     return (this.role.indexOf('RECRUTEUR') >-1) ;
     }
   isCondidat():Boolean{
-      console.log("role "+this.role);
+      // console.log("role "+this.role);
       if (!this.role) //this.roles== undefiened
           return false;
       return (this.role.indexOf('CONDIDAT') >-1) ;

@@ -5,4 +5,4 @@ export class User{
     password:string;
     id:number;
     role: string;
-}
+} 
